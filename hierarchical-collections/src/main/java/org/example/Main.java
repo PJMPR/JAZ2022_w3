@@ -31,8 +31,8 @@ public class Main {
 
         List<Geography> geographiesGotFromStream = SampleGeographiesData.data
                         .stream()
-                      //.map(geographyParser::parse)
-                        .map(line -> geographyParser.parse(line))
+                        .map(geographyParser::parse)
+                        //.map(line -> geographyParser.parse(line))
                         .toList();
 
         /**
@@ -61,7 +61,9 @@ public class Main {
          * a tak w strumieniach
          */
         List<String> countryNamesFromStream = countriesFromStream.stream()
-                .map(geo -> geo.getName()).toList();
+                .map(Geography::getName)
+                //.map(geo -> geo.getName())
+                .toList();
 
         /**
          * a co jeśli potrzebujemy jakiś wycinek (stronę)
@@ -76,7 +78,8 @@ public class Main {
         countryNamesFromStream.stream()
                 .skip(10)
                 .limit(3)
-                .forEach(name -> System.out.println(name));
+                .forEach(System.out::println);
+                //.forEach(name -> System.out.println(name));
 
         /**
          * a co jeśli z kolekcji musimy zbudować jeden element?
@@ -105,7 +108,7 @@ public class Main {
          * możemy też wykonać proste operacje na liczbach
          */
         int maxId = countries.stream()
-                .collect(Collectors.summarizingInt(c->c.getId()))
+                .collect(Collectors.summarizingInt(Geography::getId))
                 .getMax();
 
         /**
@@ -119,7 +122,7 @@ public class Main {
          */
         Map<String, List<Geography>> geographiesByRegionType
                 =geographies.stream()
-                .collect(Collectors.groupingBy(geo->geo.getType()));
+                .collect(Collectors.groupingBy(Geography::getType));
 
 
         /**
@@ -221,67 +224,4 @@ public class Main {
         }
         return result;
     }
-
-
-}
-
-
-
-class Person implements IHaveHierarchicalStructure<Person> {
-    List<Person> children = new ArrayList<>();
-    Person parent;
-    int id;
-    Integer parentId;
-
-    public Person() {
-    }
-
-    public Person(int id, Integer parentId) {
-        this.id = id;
-        this.parentId = parentId;
-    }
-
-    @Override
-    public List<Person> getChildren() {
-        return children;
-    }
-
-    @Override
-    public Person getParent() {
-        return parent;
-    }
-
-    @Override
-    public void setParent(Person parent) {
-        this.parent = parent;
-    }
-
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public Integer getParentId() {
-        return parentId;
-    }
-
-    static Person p1 = new Person(0, null);
-    static Person p2 = new Person(1, 0);
-    static Person p3 = new Person(2, 0);
-    static Person p4 = new Person(3, 1);
-    static Person p5 = new Person(4, 2);
-    static List<Person> sample = List.of(
-            p1, p2, p3, p4, p5
-    );
-
-    public static boolean isEverythingOk() {
-        return p1.children.size() == 2 && p1.parent==null
-                && p2.children.size() == 1 && p2.parent.id == 0
-                && p3.children.size() == 1 && p3.parent.id == 0
-                && p4.children.size() == 0 && p4.parent.id == 1
-                && p5.children.size() == 0 && p5.parent.id == 2;
-
-    }
-
 }
