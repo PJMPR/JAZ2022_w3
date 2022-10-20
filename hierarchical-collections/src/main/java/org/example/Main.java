@@ -22,7 +22,7 @@ public class Main {
          * Zacznijmy od wyodrębnienia informacji
          * o geografiach z list String'ów
          */
-//        List<Geography> geographies = extracted(geographyParser, geographies);
+//        List<Geography> geographies = extracted(geographyParser);
 
         /**
          * A teraz zobaczmy jak by to wyglądało z zastosowaniem strumieni na kolekcjach
