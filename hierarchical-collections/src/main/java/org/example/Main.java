@@ -201,9 +201,6 @@ public class Main {
         }
     }
 
-
-
-
     private static  List<Geography> extracted(IParse<Geography> geographyParser) {
         List<Geography> geographies = new ArrayList<>();
         for (String line :
