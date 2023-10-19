@@ -41,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/PJWSTK/JAZ2022/wyklady/git/JAZ2022_w3/hierarchical-collections",
+    "last_opened_file_path": "D:/PJWSTK/JAZ2022/wyklady/git/JAZ2022_w4/general-parsers",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -86,6 +86,10 @@
       <workItem from="1665408791630" duration="831000" />
       <workItem from="1665756193337" duration="1007000" />
       <workItem from="1666268971318" duration="13242000" />
+      <workItem from="1666294642183" duration="319000" />
+      <workItem from="1666355302286" duration="3697000" />
+      <workItem from="1666359839071" duration="31000" />
+      <workItem from="1697710053646" duration="114000" />
     </task>
     <servers />
   </component>
@@ -102,5 +106,24 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>99</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

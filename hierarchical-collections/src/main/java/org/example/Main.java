@@ -30,8 +30,8 @@ public class Main {
 
 //        List<Geography> geographiesGotFromStream = SampleGeographiesData.data
 //                        .stream()
-//                        .map(geographyParser::parse)
-//                        //.map(line -> geographyParser.parse(line))
+//                        //.map(geographyParser::parse)
+//                        .map(line -> geographyParser.parse(line))
 //                        .toList();
 
         /**
@@ -45,7 +45,8 @@ public class Main {
         /**
          * a tak to wygląda w wersji 'strumieniowej'
          */
-//        List<Geography> countriesFromStream = geographiesGotFromStream.stream()
+//        List<Geography> countriesFromStream = geographiesGotFromStream
+//                .stream()
 //                .filter(geo -> geo.getType().equalsIgnoreCase("country")).toList();
 
         /**
@@ -77,8 +78,8 @@ public class Main {
 //        countryNamesFromStream.stream()
 //                .skip(10)
 //                .limit(3)
-//                .forEach(System.out::println);
-//                //.forEach(name -> System.out.println(name));
+//                //.forEach(System.out::println);
+//                .forEach(name -> System.out.println(name));
 
         /**
          * a co jeśli z kolekcji musimy zbudować jeden element?
@@ -92,6 +93,7 @@ public class Main {
          */
 //        String namesReducedOptional = countryNamesFromStream
 //                .stream()
+//                .limit(1)
 //                .reduce( (s1,s2)->s1+", "+s2)
 //                .orElse("");
 //
@@ -107,7 +109,7 @@ public class Main {
          * możemy też wykonać proste operacje na liczbach
          */
 //        int maxId = countries.stream()
-//                .collect(Collectors.summarizingInt(Geography::getId))
+//                .collect(Collectors.summarizingInt(geo->geo.getId()))
 //                .getMax();
 
         /**
@@ -135,7 +137,7 @@ public class Main {
 //                                .findFirst().orElse(null);
 //        boolean hasRoot = geographies.stream().anyMatch(geo->geo.getParentId()==null);
 //        boolean everyGeoHasParent = geographies.stream().allMatch(geo->geo.getParent()!=null);
-//
+
 
         /**
          * a czy da się sortować?
@@ -198,6 +200,9 @@ public class Main {
             if(take>0){take--; System.out.println(name);}
         }
     }
+
+
+
 
     private static  List<Geography> extracted(IParse<Geography> geographyParser) {
         List<Geography> geographies = new ArrayList<>();
